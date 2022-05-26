@@ -30,6 +30,8 @@ class GameView(arcade.View):
         self.target_manager = TargetManager(shadertoy=self.glowball_shadertoy)
         self.color_manager = ColorManager()
         self.swatch = Swatch((100, 100))
+        self.laser_sound = arcade.load_sound(":resources:sounds/hurt5.wav")
+        self.hit_sound = arcade.load_sound(":resources:sounds/explosion1.wav")
         self.color_bars = [
             ColorBar(
                 position=(200 + 50 * index, 100),
@@ -39,6 +41,7 @@ class GameView(arcade.View):
             for index, color in enumerate(self.color_manager.color_names)
         ]
         self.score = 0
+        
 
         self.start_new_game()
 
